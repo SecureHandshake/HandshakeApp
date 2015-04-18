@@ -17,11 +17,6 @@
             <artifactId>xz</artifactId>
             <version>1.5</version>
         </dependency>
-        <dependency>
-            <groupId>org.gnupg</groupId>
-            <artifactId>gnupg-for-java</artifactId>
-            <version>0.2-pre-SNAPSHOT</version>
-        </dependency>
     </dependencies>
     <reporting>
         <plugins>
