@@ -26,7 +26,7 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
-trget/
+target/
 
 #################
 #### WINDOWS ####
