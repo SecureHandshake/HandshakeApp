@@ -9,6 +9,13 @@ geeky/nerdy. Also provides solid security measures.
 | -------------------- |
 |[![Build Status](https://travis-ci.org/SecureHandshake/HandshakeApp.svg?branch=develop)](https://travis-ci.org/SecureHandshake/HandshakeApp)
 
+Project Structure
+-----------------
+The whole Handshake app is divided into two parts:
+- This repo (HandshakApp) handles all of the GUI, majority of functionality and interfaces with `gnupg-for-java`. 
+- [`gnupg-for-java`](http://github.com/SecureHandshake/gnupg-for-java): Provides an API for all the PGP related tasks such
+as encryption, key generation and other crypto stuff.
+
 Which branch?
 ------------
 All the work happens on the `develop` branch, with specific branches for major feature (`feature/*` branches). No guarantee
