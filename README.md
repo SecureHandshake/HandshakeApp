@@ -34,6 +34,8 @@ To build you need
 * NetBeans IDE: Version 8
 * Maven (Default wth NetBeans)
 
+All other and any future dependencies will be handled by Maven
+
 **Note:** NetBeans IDE is required only beacuse of the GUI code. If contributing to non GUI code, any IDE with maven support 
 will do.
 
@@ -54,7 +56,7 @@ License
 -------
 [![GPL v3](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/copyleft/gpl.html)
 
-Your use and rights regarding the software are covered under the GNU GPL v3 License. See the
+Your usage and copying rights regarding the software are covered under the GNU GPL v3 License. See the
 [`LICENSE`](https://github.com/SecureHandshake/HandshakeApp/blob/develop/LICENSE) file for full text.
 
 More Information
