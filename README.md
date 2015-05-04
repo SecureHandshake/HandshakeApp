@@ -21,3 +21,7 @@ If you notice any bug, have a suggestion then please open a GitHub issue. Pull r
 License
 -------
 Your use and rights regarding the software are covered under the MIT License. See the `LICENSE` file for full text.
+
+More Information
+----------------
+Visit [Handshake App Wiki](https://github.com/SecureHandshake/HandshakeApp/wiki) for technical information or [Handshake App Github Page](http://securehandshake.github.io/HandshakeApp/) for more information.
