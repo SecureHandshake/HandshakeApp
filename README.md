@@ -37,6 +37,10 @@ Contributing
 If you notice any bug, have a suggestion then please open a GitHub issue. Pull requests are welcome. Get going! Please be 
 consistent with your style throughout.
 
+Please follow Vincent Driessen's [branching model](http://nvie.com/posts/a-successful-git-branching-model/). You can use a
+GUI such as [Sourcetree](http://sourcetreeapp.com) or the [`gitflow`](https://github.com/nvie/gitflow) extension to make 
+tasks easier for you.
+
 Any kind of contribution is welcome.
 
 License
