@@ -61,4 +61,4 @@ Your usage and copying rights regarding the software are covered under the GNU G
 
 More Information
 ----------------
-Visit [Handshake App Wiki](https://github.com/SecureHandshake/HandshakeApp/wiki) for technical information or [Handshake App Github Page](http://securehandshake.github.io/HandshakeApp/) for more information.
+Visit [Handshake App Wiki](https://github.com/SecureHandshake/HandshakeApp/wiki) for technical information or [Handshake App Github Page](http://securehandshake.github.io/) for more information.
