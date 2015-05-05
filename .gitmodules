@@ -1,0 +1,4 @@
+[submodule "gnupg-for-java"]
+	path = gnupg-for-java
+	url = https://github.com/SecureHandshake/gnupg-for-java.git
+	branch = master
