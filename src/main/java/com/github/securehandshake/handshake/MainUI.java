@@ -16,6 +16,10 @@
  */
 package com.github.securehandshake.handshake;
 
+import java.awt.SplashScreen;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author "Shubham Rao <cshubhamrao@gmail.com>"
@@ -91,6 +95,38 @@ public class MainUI extends javax.swing.JFrame {
                 new MainUI().setVisible(true);
             }
         });
+    }
+
+    private static void showSplashScreen() {
+        SplashScreen splash = SplashScreen.getSplashScreen();
+
+        if (splash != null) {
+            try {
+            /* Long long long task goes here:
+            
+            Find the system, architecture
+            Look for the .dll or .so inside jar
+            
+            Move .dll/.so in $TEMP/HandshakeApp 
+           
+            Mind the JAVA PATH
+            Modify path to include $TEMP/HandshakeApp
+            
+            Instantiate the GnuPGContext
+            
+            Return
+            
+            All of this for later...
+            Until then let's sleep for 5s zzz...
+            */
+                Thread.sleep(5000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            System.out.println("Splash Null");
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
