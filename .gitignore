@@ -23,7 +23,6 @@ build/
 nbbuild/
 dist/
 nbdist/
-nb-configuration.xml
 .nb-gradle/
 target/
 
