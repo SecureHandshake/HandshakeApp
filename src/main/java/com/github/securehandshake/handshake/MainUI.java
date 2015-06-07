@@ -17,8 +17,11 @@
 package com.github.securehandshake.handshake;
 
 import java.awt.SplashScreen;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -31,6 +34,7 @@ public class MainUI extends javax.swing.JFrame {
      */
     public MainUI() {
         initComponents();
+        setIcon();
     }
 
     /**
@@ -126,6 +130,16 @@ public class MainUI extends javax.swing.JFrame {
 
     }
 
+    private void setIcon() {
+        BufferedImage icon;
+        try {
+            icon = ImageIO.read(getClass().getClassLoader().getResource("icon.png"));
+            setIconImage(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(MainUI.class.getName()).log(Level.INFO, null, ex);
+            System.out.println("Unable to set icon, reverting to default");
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
