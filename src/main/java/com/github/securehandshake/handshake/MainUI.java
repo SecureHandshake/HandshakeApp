@@ -99,29 +99,29 @@ public class MainUI extends javax.swing.JFrame {
 
         if (splash != null) {
             try {
-            /* Long long long task goes here:
+                /* Long long long task goes here:
             
-            Find the system, architecture
-            Look for the .dll or .so inside jar
+                 Find the system, architecture
+                 Look for the .dll or .so inside jar
             
-            Move .dll/.so in $TEMP/HandshakeApp 
+                 Move .dll/.so in $TEMP/HandshakeApp 
            
-            Mind the JAVA PATH
-            Modify path to include $TEMP/HandshakeApp
+                 Mind the JAVA PATH
+                 Modify path to include $TEMP/HandshakeApp
             
-            Instantiate the GnuPGContext
+                 Instantiate the GnuPGContext
             
-            Return
+                 Return
             
-            All of this for later...
-            Until then let's sleep for 5s zzz...
-            */
+                 All of this for later...
+                 Until then let's sleep for 5s zzzzz.....
+                 */
                 Thread.sleep(5000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            System.out.println("Splash Null");
+            System.out.println("ERROR in showing splash screen");
         }
 
     }
