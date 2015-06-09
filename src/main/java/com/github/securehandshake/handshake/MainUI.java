@@ -20,7 +20,9 @@ import com.github.securehandshake.handshake.Library.OSIdentifier;
 
 import java.awt.SplashScreen;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.logging.*;
 import javax.imageio.ImageIO;
 
@@ -173,6 +175,19 @@ public class MainUI extends javax.swing.JFrame {
             Logger.getLogger(MainUI.class.getName()).log(Level.INFO, null, ex);
             System.out.println("Unable to set icon, reverting to default");
         }
+    }
+
+    private static void loadLibrary(MainUI mainUi, String libraryResource) {
+        File tempFolder; 
+        try {
+
+            tempFolder = Files.createTempDirectory("HandshakeApp").toFile();
+            tempFolder.deleteOnExit();
+        } catch (IOException ex) {
+            System.out.println("Unable to create temporary directory for app");
+            System.out.println("Details:\n" + ex );
+        }
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
