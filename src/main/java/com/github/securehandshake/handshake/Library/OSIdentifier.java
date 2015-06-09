@@ -25,7 +25,7 @@ public class OSIdentifier {
       Creating an enumeration to list operating systems Handshake's link libraries 
     will support
     */
-   public static enum OperatingSystems{
+   public static enum OperatingSystem{
        /*
         All Windows/Windows Server/Windows NT versions
        */
@@ -48,7 +48,7 @@ public class OSIdentifier {
     Creating an enumeration to list supported system architectures the JRE can use to
    run Handshake
    */
-   public static enum SystemArchitectures{
+   public static enum SystemArchitecture{
     /*
      32-bit architecture (also known as i386 or x86)
     */    
@@ -65,16 +65,16 @@ public class OSIdentifier {
    /*
    Function to fetch current host operating system the JRE is running on
    */
-   public static OperatingSystems fetchCurrentOs(){
-    OperatingSystems fetchCurrentOs=OperatingSystems.UNKNOWN;
+   public static OperatingSystem fetchCurrentOs(){
+    OperatingSystem fetchCurrentOs=OperatingSystem.UNKNOWN;
     if(System.getProperty("os.name").startsWith("Windows")){
-        fetchCurrentOs=OperatingSystems.WINDOWS;
+        fetchCurrentOs=OperatingSystem.WINDOWS;
     }
     if(System.getProperty("os.name").startsWith("Linux")){
-        fetchCurrentOs=OperatingSystems.LINUX;
+        fetchCurrentOs=OperatingSystem.LINUX;
     }
     if(System.getProperty("os.name").startsWith("Mac")){
-        fetchCurrentOs=OperatingSystems.MAC;
+        fetchCurrentOs=OperatingSystem.MAC;
     }
     return fetchCurrentOs;
 }
@@ -84,13 +84,13 @@ public class OSIdentifier {
    operating system's architecture, hence a 64-bit operating system running
    a 32-bit JRE will be reported by OSIdentifier as having 32-bit architecture.
    */
-   public static SystemArchitectures fetchCurrentArch(){
-       SystemArchitectures fetchCurrentArch=SystemArchitectures.UNKNOWN;
+   public static SystemArchitecture fetchCurrentArch(){
+       SystemArchitecture fetchCurrentArch=SystemArchitecture.UNKNOWN;
        if(System.getProperty("os.arch").equalsIgnoreCase("i386")){
-           fetchCurrentArch=SystemArchitectures.THIRTYTWOBIT;
+           fetchCurrentArch=SystemArchitecture.THIRTYTWOBIT;
        }
        if(System.getProperty("os.arch").equalsIgnoreCase("amd64")){
-           fetchCurrentArch=SystemArchitectures.SIXTYFOURBIT;
+           fetchCurrentArch=SystemArchitecture.SIXTYFOURBIT;
        }
        return fetchCurrentArch;
    }
