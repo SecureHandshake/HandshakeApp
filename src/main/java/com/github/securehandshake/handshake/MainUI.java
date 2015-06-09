@@ -30,6 +30,8 @@ import javax.imageio.ImageIO;
  */
 public class MainUI extends javax.swing.JFrame {
 
+    private static MainUI mainUi = new MainUI();
+
     /**
      * Creates new form MainUI
      */
@@ -94,7 +96,7 @@ public class MainUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainUI().setVisible(true);
+                mainUi.setVisible(true);
             }
         });
     }
