@@ -113,7 +113,7 @@ public class MainUI extends javax.swing.JFrame {
 //                 Look for the .dll or .so inside jar
             String libName = "";
             String arch = "";
-            String resRoot = "libs/";
+            String resRoot = "/libs/";
             String libraryResource;
 
             switch (OSIdentifier.fetchCurrentOs()) {
@@ -142,9 +142,7 @@ public class MainUI extends javax.swing.JFrame {
             }
 
             // For eg. Linux 64 bit: libs/x64_libgnupg.so
-            libraryResource = resRoot + arch + "_" + libName;
-            
-            
+            libraryResource = resRoot + arch + "_" + libName + ".xz";
 //                 Move .dll/.so in $TEMP/HandshakeApp 
 //                 Mind the JAVA PATH
 //                 Modify path to include $TEMP/HandshakeApp
@@ -179,6 +177,8 @@ public class MainUI extends javax.swing.JFrame {
 
     private static void loadLibrary(MainUI mainUi, String libraryResource) {
         File tempFolder; 
+        String fileName = libraryResource.substring(
+            libraryResource.indexOf("_") + 1, libraryResource.lastIndexOf("."));
         try {
 
             tempFolder = Files.createTempDirectory("HandshakeApp").toFile();
