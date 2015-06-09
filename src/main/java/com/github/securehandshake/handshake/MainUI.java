@@ -107,11 +107,11 @@ public class MainUI extends javax.swing.JFrame {
 //            
 //                 Find the system, architecture
 //                 Look for the .dll or .so inside jar
-            String libName;
-            String arch;
+            String libName = "";
+            String arch = "";
             String resRoot = "libs/";
-            String libraryResoure;
-            
+            String libraryResource;
+
             switch (OSIdentifier.fetchCurrentOs()) {
                 case LINUX:
                     libName = "libgnupg.so";
@@ -125,7 +125,7 @@ public class MainUI extends javax.swing.JFrame {
                 case UNKNOWN:
                     break;
             }
-            
+
             switch (OSIdentifier.fetchCurrentArch()) {
                 case THIRTY_TWO_BIT:
                     arch = "x32";
@@ -136,8 +136,12 @@ public class MainUI extends javax.swing.JFrame {
                 case UNKNOWN:
                     break;
             }
+
+            // For eg. Linux 64 bit: libs/x64_libgnupg.so
+            libraryResource = resRoot + arch + "_" + libName;
+            
+            
 //                 Move .dll/.so in $TEMP/HandshakeApp 
-//           
 //                 Mind the JAVA PATH
 //                 Modify path to include $TEMP/HandshakeApp
 //            
