@@ -22,76 +22,82 @@ package com.github.securehandshake.handshake.Library;
  */
 public class OSIdentifier {
     /*
-      Creating an enumeration to list operating systems Handshake's link libraries 
-    will support
-    */
-   public static enum OperatingSystem{
-       /*
-        All Windows/Windows Server/Windows NT versions
-       */
-       WINDOWS,
-       /*
-        All Mac OS/Mac OS X/OS X versions
-       */
-       MAC,
-       /*
-        The core Linux operating systems and all distributions based on it
-       such as Debian, Ubuntu, Mint, RHEL, Fedora etc.
-       */
-       LINUX,
-       /*
-       For any other operating systems for which Handshake does not contain a link library
-       */
-       UNKNOWN
-   }
-   /*
-    Creating an enumeration to list supported system architectures the JRE can use to
-   run Handshake
-   */
-   public static enum SystemArchitecture{
-    /*
-     32-bit architecture (also known as i386 or x86)
-    */    
-       THIRTYTWOBIT,
-    /*
-       64-bit architecture (also known as amd64 or x64)
-       */   
-       SIXTYFOURBIT,
-     /*
-       For lower/higher/incompatible/to be invented architectures 
+     Creating an enumeration to list operating systems Handshake's link libraries 
+     will support
      */
-       UNKNOWN
-   }
-   /*
-   Function to fetch current host operating system the JRE is running on
-   */
-   public static OperatingSystem fetchCurrentOs(){
-    OperatingSystem fetchCurrentOs=OperatingSystem.UNKNOWN;
-    if(System.getProperty("os.name").startsWith("Windows")){
-        fetchCurrentOs=OperatingSystem.WINDOWS;
+
+    public static enum OperatingSystem {
+        /*
+         All Windows/Windows Server/Windows NT versions
+         */
+
+        WINDOWS,
+        /*
+         All Mac OS/Mac OS X/OS X versions
+         */
+        MAC,
+        /*
+         The core Linux operating systems and all distributions based on it
+         such as Debian, Ubuntu, Mint, RHEL, Fedora etc.
+         */
+        LINUX,
+        /*
+         For any other operating systems for which Handshake does not contain a link library
+         */
+        UNKNOWN
     }
-    if(System.getProperty("os.name").startsWith("Linux")){
-        fetchCurrentOs=OperatingSystem.LINUX;
+    /*
+     Creating an enumeration to list supported system architectures the JRE can use to
+     run Handshake
+     */
+
+    public static enum SystemArchitecture {
+        /*
+         32-bit architecture (also known as i386 or x86)
+         */
+
+        THIRTY_TWO_BIT,
+        /*
+         64-bit architecture (also known as amd64 or x64)
+         */
+        SIXTY_FOUR_BIT,
+        /*
+         For lower/higher/incompatible/to be invented architectures 
+         */
+        UNKNOWN
     }
-    if(System.getProperty("os.name").startsWith("Mac")){
-        fetchCurrentOs=OperatingSystem.MAC;
+    /*
+     Function to fetch current host operating system the JRE is running on
+     */
+
+    public static OperatingSystem fetchCurrentOs() {
+        OperatingSystem currentOs = OperatingSystem.UNKNOWN;
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            currentOs = OperatingSystem.WINDOWS;
+        }
+        if (System.getProperty("os.name").startsWith("Linux")) {
+            currentOs = OperatingSystem.LINUX;
+        }
+        if (System.getProperty("os.name").startsWith("Mac")) {
+            currentOs = OperatingSystem.MAC;
+        }
+        return currentOs;
     }
-    return fetchCurrentOs;
-}
-   /*
-    Function to fetch current system architecture the JRE is running on.
-   Please note that this function reports JRE architecture and not the host
-   operating system's architecture, hence a 64-bit operating system running
-   a 32-bit JRE will be reported by OSIdentifier as having 32-bit architecture.
-   */
-   public static SystemArchitecture fetchCurrentArch(){
-       SystemArchitecture fetchCurrentArch=SystemArchitecture.UNKNOWN;
-       if(System.getProperty("os.arch").equalsIgnoreCase("i386")){
-           fetchCurrentArch=SystemArchitecture.THIRTYTWOBIT;
-       }
-       if(System.getProperty("os.arch").equalsIgnoreCase("amd64")){
-           fetchCurrentArch=SystemArchitecture.SIXTYFOURBIT;
-       }
-       return fetchCurrentArch;
-   }
+    /*
+     Function to fetch current system architecture the JRE is running on.
+     Please note that this function reports JRE architecture and not the host
+     operating system's architecture, hence a 64-bit operating system running
+     a 32-bit JRE will be reported by OSIdentifier as having 32-bit architecture.
+     */
+
+    public static SystemArchitecture fetchCurrentArch() {
+        SystemArchitecture currentArch = SystemArchitecture.UNKNOWN;
+        if (System.getProperty("os.arch").equalsIgnoreCase("i386")) {
+            currentArch = SystemArchitecture.THIRTY_TWO_BIT;
+        }
+        if (System.getProperty("os.arch").equalsIgnoreCase("amd64")) {
+            currentArch = SystemArchitecture.SIXTY_FOUR_BIT;
+        }
+        return currentArch;
+    }
 }
