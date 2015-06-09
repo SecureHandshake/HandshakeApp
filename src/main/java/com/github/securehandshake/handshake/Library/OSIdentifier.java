@@ -56,11 +56,11 @@ public class OSIdentifier {
          32-bit architecture (also known as i386 or x86)
          */
 
-        THIRTYTWOBIT,
+        THIRTY_TWO_BIT,
         /*
          64-bit architecture (also known as amd64 or x64)
          */
-        SIXTYFOURBIT,
+        SIXTY_FOUR_BIT,
         /*
          For lower/higher/incompatible/to be invented architectures 
          */
@@ -93,10 +93,10 @@ public class OSIdentifier {
     public static SystemArchitecture fetchCurrentArch() {
         SystemArchitecture currentArch = SystemArchitecture.UNKNOWN;
         if (System.getProperty("os.arch").equalsIgnoreCase("i386")) {
-            currentArch = SystemArchitecture.THIRTYTWOBIT;
+            currentArch = SystemArchitecture.THIRTY_TWO_BIT;
         }
         if (System.getProperty("os.arch").equalsIgnoreCase("amd64")) {
-            currentArch = SystemArchitecture.SIXTYFOURBIT;
+            currentArch = SystemArchitecture.SIXTY_FOUR_BIT;
         }
         return currentArch;
     }
