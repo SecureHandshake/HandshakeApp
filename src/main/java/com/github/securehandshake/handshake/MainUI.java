@@ -103,12 +103,39 @@ public class MainUI extends javax.swing.JFrame {
         SplashScreen splash = SplashScreen.getSplashScreen();
 
         if (splash != null) {
-            try {
 //                 Long long long task goes here:
 //            
 //                 Find the system, architecture
 //                 Look for the .dll or .so inside jar
-//            
+            String libName;
+            String arch;
+            String resRoot = "libs/";
+            String libraryResoure;
+            
+            switch (OSIdentifier.fetchCurrentOs()) {
+                case LINUX:
+                    libName = "libgnupg.so";
+                    break;
+                case WINDOWS:
+                    libName = "gnupg.dll";
+                    break;
+                case MAC:
+                    libName = "mac-libgnupg.so";
+                    break;
+                case UNKNOWN:
+                    break;
+            }
+            
+            switch (OSIdentifier.fetchCurrentArch()) {
+                case THIRTY_TWO_BIT:
+                    arch = "x32";
+                    break;
+                case SIXTY_FOUR_BIT:
+                    arch = "x64";
+                    break;
+                case UNKNOWN:
+                    break;
+            }
 //                 Move .dll/.so in $TEMP/HandshakeApp 
 //           
 //                 Mind the JAVA PATH
@@ -120,7 +147,7 @@ public class MainUI extends javax.swing.JFrame {
 //            
 //                 All of this for later...
 //                 Until then let's sleep for 5s zzzzz.....
-//                 
+            try {
                 Thread.sleep(5000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
