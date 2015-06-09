@@ -133,7 +133,7 @@ public class MainUI extends javax.swing.JFrame {
     private void setIcon() {
         BufferedImage icon;
         try {
-            icon = ImageIO.read(getClass().getClassLoader().getResource("icon.png"));
+            icon = ImageIO.read(getClass().getClassLoader().getResource("logo.png"));
             setIconImage(icon);
         } catch (IOException ex) {
             Logger.getLogger(MainUI.class.getName()).log(Level.INFO, null, ex);
