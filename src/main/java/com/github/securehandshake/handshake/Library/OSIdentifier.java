@@ -66,17 +66,17 @@ public class OSIdentifier {
    Function to fetch current host operating system the JRE is running on
    */
    public static OperatingSystem fetchCurrentOs(){
-    OperatingSystem fetchCurrentOs=OperatingSystem.UNKNOWN;
+    OperatingSystem currentOs=OperatingSystem.UNKNOWN;
     if(System.getProperty("os.name").startsWith("Windows")){
-        fetchCurrentOs=OperatingSystem.WINDOWS;
+        currentOs=OperatingSystem.WINDOWS;
     }
     if(System.getProperty("os.name").startsWith("Linux")){
-        fetchCurrentOs=OperatingSystem.LINUX;
+        currentOs=OperatingSystem.LINUX;
     }
     if(System.getProperty("os.name").startsWith("Mac")){
-        fetchCurrentOs=OperatingSystem.MAC;
+        currentOs=OperatingSystem.MAC;
     }
-    return fetchCurrentOs;
+    return currentOs;
 }
    /*
     Function to fetch current system architecture the JRE is running on.
@@ -85,13 +85,13 @@ public class OSIdentifier {
    a 32-bit JRE will be reported by OSIdentifier as having 32-bit architecture.
    */
    public static SystemArchitecture fetchCurrentArch(){
-       SystemArchitecture fetchCurrentArch=SystemArchitecture.UNKNOWN;
+       SystemArchitecture currentArch=SystemArchitecture.UNKNOWN;
        if(System.getProperty("os.arch").equalsIgnoreCase("i386")){
-           fetchCurrentArch=SystemArchitecture.THIRTYTWOBIT;
+           currentArch=SystemArchitecture.THIRTYTWOBIT;
        }
        if(System.getProperty("os.arch").equalsIgnoreCase("amd64")){
-           fetchCurrentArch=SystemArchitecture.SIXTYFOURBIT;
+           currentArch=SystemArchitecture.SIXTYFOURBIT;
        }
-       return fetchCurrentArch;
+       return currentArch;
    }
 }
