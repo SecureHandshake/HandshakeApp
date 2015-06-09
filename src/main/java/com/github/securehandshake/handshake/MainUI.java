@@ -21,10 +21,13 @@ import com.github.securehandshake.handshake.Library.OSIdentifier;
 import java.awt.SplashScreen;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.util.logging.*;
 import javax.imageio.ImageIO;
+import org.tukaani.xz.XZInputStream;
 
 /**
  *
@@ -143,6 +146,9 @@ public class MainUI extends javax.swing.JFrame {
 
             // For eg. Linux 64 bit: libs/x64_libgnupg.so
             libraryResource = resRoot + arch + "_" + libName + ".xz";
+
+            loadLibrary(mainUi, libraryResource);
+
 //                 Move .dll/.so in $TEMP/HandshakeApp 
 //                 Mind the JAVA PATH
 //                 Modify path to include $TEMP/HandshakeApp
@@ -176,19 +182,37 @@ public class MainUI extends javax.swing.JFrame {
     }
 
     private static void loadLibrary(MainUI mainUi, String libraryResource) {
-        File tempFolder; 
+        File tempFolder;
+        File library;
         String fileName = libraryResource.substring(
             libraryResource.indexOf("_") + 1, libraryResource.lastIndexOf("."));
+        
         try {
-
             tempFolder = Files.createTempDirectory("HandshakeApp").toFile();
             tempFolder.deleteOnExit();
-        } catch (IOException ex) {
-            System.out.println("Unable to create temporary directory for app");
-            System.out.println("Details:\n" + ex );
+
+            library = new File(tempFolder, fileName);
+
+            try (
+                    OutputStream decompressedLib = new FileOutputStream(library);
+                    XZInputStream compressedLib = new XZInputStream(
+                       mainUi.getClass().getResourceAsStream(libraryResource));
+                )
+            {
+                int read = 0;
+                byte[] bytes = new byte[1024];
+                
+                while ( (read = compressedLib.read(bytes)) != -1)
+                {
+                    decompressedLib.write(bytes, 0, read);
+                }
+            }
+            } catch (IOException ex) {
+                System.out.println("Unable to create temporary directory for app");
+                System.out.println("Details:\n" + ex);
+            }
+
         }
-        
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
