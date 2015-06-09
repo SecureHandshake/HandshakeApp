@@ -16,11 +16,12 @@
  */
 package com.github.securehandshake.handshake;
 
+import com.github.securehandshake.handshake.Library.OSIdentifier;
+
 import java.awt.SplashScreen;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.imageio.ImageIO;
 
 /**
