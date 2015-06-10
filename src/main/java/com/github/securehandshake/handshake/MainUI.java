@@ -96,7 +96,6 @@ public class MainUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -146,9 +145,12 @@ public class MainUI extends javax.swing.JFrame {
             // For eg. Linux 64 bit: libs/x64_libgnupg.so
             libraryResource = resRoot + arch + "_" + libName + ".xz";
 
-            loadLibrary(libraryResource);
+            // Create Temporary Folder
+            File tempFolder = createTempFolder();
 
 //                 Move .dll/.so in $TEMP/HandshakeApp 
+            loadLibrary(tempFolder, libraryResource);
+
 //                 Mind the JAVA PATH
 //                 Modify path to include $TEMP/HandshakeApp
 //            
@@ -180,38 +182,43 @@ public class MainUI extends javax.swing.JFrame {
         }
     }
 
-    private void loadLibrary(String libraryResource) {
-        File tempFolder;
+    private void loadLibrary(File location, String libraryResource) {
         File library;
         String fileName = libraryResource.substring(
             libraryResource.indexOf("_") + 1, libraryResource.lastIndexOf("."));
-        
+
+        library = new File(location, fileName);
+
+        try (
+                OutputStream decompressedLib = new FileOutputStream(library);
+                XZInputStream compressedLib = new XZInputStream(
+                        getClass().getResourceAsStream(libraryResource));) {
+            int read = 0;
+            byte[] bytes = new byte[1024];
+
+            while ((read = compressedLib.read(bytes)) != -1) {
+                decompressedLib.write(bytes, 0, read);
+            }
+        } catch (Exception ex) {
+            System.out.println("Unable to load library for app");
+            System.out.println("Details:\n" + ex);
+        }
+
+    }
+
+    private File createTempFolder() {
+        File tempFolder;
         try {
             tempFolder = Files.createTempDirectory("HandshakeApp").toFile();
             tempFolder.deleteOnExit();
-
-            library = new File(tempFolder, fileName);
-
-            try (
-                    OutputStream decompressedLib = new FileOutputStream(library);
-                    XZInputStream compressedLib = new XZInputStream(
-                       getClass().getResourceAsStream(libraryResource));
-                )
-            {
-                int read = 0;
-                byte[] bytes = new byte[1024];
-                
-                while ( (read = compressedLib.read(bytes)) != -1)
-                {
-                    decompressedLib.write(bytes, 0, read);
-                }
-            }
-            } catch (IOException ex) {
-                System.out.println("Unable to create temporary directory for app");
-                System.out.println("Details:\n" + ex);
-            }
-
+        } catch (IOException ex) {
+            System.out.println("Unable to create temporary directory for app");
+            System.out.println("Details:\n" + ex);
+            tempFolder = null;
         }
+
+        return tempFolder;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
