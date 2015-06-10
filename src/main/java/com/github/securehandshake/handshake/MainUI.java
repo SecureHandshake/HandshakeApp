@@ -114,20 +114,20 @@ public class MainUI extends javax.swing.JFrame {
 //            
 //                 Find the system, architecture
 //                 Look for the .dll or .so inside jar
-            String libName = "";
+            String libName = "gnupg-for-java";
             String arch = "";
             String resRoot = "/libs/";
             String libraryResource;
 
             switch (OSIdentifier.fetchCurrentOs()) {
                 case LINUX:
-                    libName = "libgnupg.so";
+                    libName = "lib" + libName + ".so";
                     break;
                 case WINDOWS:
-                    libName = "gnupg.dll";
+                    libName += ".dll";
                     break;
                 case MAC:
-                    libName = "mac-libgnupg.so";
+                    libName = "mac-lib" + libName + ".so";
                     break;
                 case UNKNOWN:
                     break;
