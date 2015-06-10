@@ -34,6 +34,7 @@
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
+                    <finalName>HandshakeApp</finalName>
                     <archive>
                         <manifest>
                             <mainClass>com.github.securehandshake.handshake.MainUI</mainClass>
