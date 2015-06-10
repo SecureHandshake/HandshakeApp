@@ -40,6 +40,7 @@ public class MainUI extends javax.swing.JFrame {
      */
     public MainUI() {
         initComponents();
+        showSplashScreen();
         setIcon();
     }
 
@@ -95,7 +96,7 @@ public class MainUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        showSplashScreen();
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -104,7 +105,7 @@ public class MainUI extends javax.swing.JFrame {
         });
     }
 
-    private static void showSplashScreen() {
+    private  void showSplashScreen() {
         SplashScreen splash = SplashScreen.getSplashScreen();
 
         if (splash != null) {
@@ -179,7 +180,7 @@ public class MainUI extends javax.swing.JFrame {
         }
     }
 
-    private static void loadLibrary(MainUI mainUi, String libraryResource) {
+    private void loadLibrary(MainUI mainUi, String libraryResource) {
         File tempFolder;
         File library;
         String fileName = libraryResource.substring(
@@ -194,7 +195,7 @@ public class MainUI extends javax.swing.JFrame {
             try (
                     OutputStream decompressedLib = new FileOutputStream(library);
                     XZInputStream compressedLib = new XZInputStream(
-                       mainUi.getClass().getResourceAsStream(libraryResource));
+                       getClass().getResourceAsStream(libraryResource));
                 )
             {
                 int read = 0;
