@@ -76,7 +76,7 @@ public class MainUI extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -104,71 +104,69 @@ public class MainUI extends javax.swing.JFrame {
         });
     }
 
-    private  void showSplashScreen() {
+    private void showSplashScreen() {
         SplashScreen splash = SplashScreen.getSplashScreen();
 
 //                 Long long long task goes here:
-//            
+//
 //                 Find the system, architecture
 //                 Look for the .dll or .so inside jar
-            String libName = "gnupg-for-java";
-            String arch = "";
-            String resRoot = "/libs/";
-            String libraryResource;
+        String libName = "gnupg-for-java";
+        String arch = "";
+        String resRoot = "/libs/";
+        String libraryResource;
 
-            switch (OSIdentifier.fetchCurrentOs()) {
-                case LINUX:
-                    libName = "lib" + libName + ".so";
-                    break;
-                case WINDOWS:
-                    libName += ".dll";
-                    break;
-                case MAC:
-                    libName = "mac-lib" + libName + ".so";
-                    break;
-                case UNKNOWN:
-                    break;
-            }
+        switch (OSIdentifier.fetchCurrentOs()) {
+            case LINUX:
+                libName = "lib" + libName + ".so";
+                break;
+            case WINDOWS:
+                libName += ".dll";
+                break;
+            case MAC:
+                libName = "mac-lib" + libName + ".so";
+                break;
+            case UNKNOWN:
+                break;
+        }
 
-            switch (OSIdentifier.fetchCurrentArch()) {
-                case THIRTY_TWO_BIT:
-                    arch = "x32";
-                    break;
-                case SIXTY_FOUR_BIT:
-                    arch = "x64";
-                    break;
-                case UNKNOWN:
-                    break;
-            }
+        switch (OSIdentifier.fetchCurrentArch()) {
+            case THIRTY_TWO_BIT:
+                arch = "x32";
+                break;
+            case SIXTY_FOUR_BIT:
+                arch = "x64";
+                break;
+            case UNKNOWN:
+                break;
+        }
 
-            // For eg. Linux 64 bit: libs/x64_libgnupg.so
-            libraryResource = resRoot + arch + "_" + libName + ".xz";
+        // For eg. Linux 64 bit: libs/x64_libgnupg.so
+        libraryResource = resRoot + arch + "_" + libName + ".xz";
 
-            // Create Temporary Folder
-            File tempFolder = createTempFolder();
+        // Create Temporary Folder
+        File tempFolder = createTempFolder();
 
-//                 Move .dll/.so in $TEMP/HandshakeApp 
-            loadLibrary(tempFolder, libraryResource);
+//                 Move .dll/.so in $TEMP/HandshakeApp
+        loadLibrary(tempFolder, libraryResource);
 
 //                 Mind the JAVA PATH
 //                 Modify path to include $TEMP/HandshakeApp
-//            
+//
 //                 Instantiate the GnuPGContext
-//            
+//
 //                 Return
-//            
+//
 //                 All of this for later...
 //                 Until then let's sleep for 5s zzzzz.....
-            try {
-                Thread.sleep(5000);
-                splash.close();
-            } catch (InterruptedException | IllegalStateException ex) {
-                Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+        try {
+            Thread.sleep(5000);
+            splash.close();
+        } catch (InterruptedException | IllegalStateException ex) {
+            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    
+    }
 
     private void setIcon() {
         BufferedImage icon;
