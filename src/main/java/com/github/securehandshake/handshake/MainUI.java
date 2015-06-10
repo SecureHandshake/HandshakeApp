@@ -107,7 +107,6 @@ public class MainUI extends javax.swing.JFrame {
     private  void showSplashScreen() {
         SplashScreen splash = SplashScreen.getSplashScreen();
 
-        if (splash != null) {
 //                 Long long long task goes here:
 //            
 //                 Find the system, architecture
@@ -162,14 +161,14 @@ public class MainUI extends javax.swing.JFrame {
 //                 Until then let's sleep for 5s zzzzz.....
             try {
                 Thread.sleep(5000);
-            } catch (InterruptedException ex) {
+                splash.close();
+            } catch (InterruptedException | IllegalStateException ex) {
                 Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-            System.out.println("ERROR in showing splash screen");
+
         }
 
-    }
+    
 
     private void setIcon() {
         BufferedImage icon;
