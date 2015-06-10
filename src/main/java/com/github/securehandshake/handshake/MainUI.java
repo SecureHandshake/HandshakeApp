@@ -35,8 +35,6 @@ import org.tukaani.xz.XZInputStream;
  */
 public class MainUI extends javax.swing.JFrame {
 
-    private static MainUI mainUi = new MainUI();
-
     /**
      * Creates new form MainUI
      */
@@ -101,7 +99,7 @@ public class MainUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                mainUi.setVisible(true);
+                new MainUI().setVisible(true);
             }
         });
     }
