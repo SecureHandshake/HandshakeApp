@@ -146,7 +146,7 @@ public class MainUI extends javax.swing.JFrame {
             // For eg. Linux 64 bit: libs/x64_libgnupg.so
             libraryResource = resRoot + arch + "_" + libName + ".xz";
 
-            loadLibrary(mainUi, libraryResource);
+            loadLibrary(libraryResource);
 
 //                 Move .dll/.so in $TEMP/HandshakeApp 
 //                 Mind the JAVA PATH
@@ -180,7 +180,7 @@ public class MainUI extends javax.swing.JFrame {
         }
     }
 
-    private void loadLibrary(MainUI mainUi, String libraryResource) {
+    private void loadLibrary(String libraryResource) {
         File tempFolder;
         File library;
         String fileName = libraryResource.substring(
