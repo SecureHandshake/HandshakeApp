@@ -14,5 +14,15 @@ That way multiple projects can share the same settings (useful for formatting ru
 Any value defined here will override the pom.xml file value but is only applicable to the current project.
 -->
         <netbeans.hint.license>gpl30</netbeans.hint.license>
+        <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
+        <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.text-line-wrap>none</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.text-line-wrap>
+        <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.importGroupsOrder>*</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.importGroupsOrder>
+        <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeElseOnNewLine>true</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeElseOnNewLine>
+        <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeWhileOnNewLine>true</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.placeWhileOnNewLine>
+        <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineFor>true</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineFor>
+        <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.enableBlockCommentFormatting>true</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.enableBlockCommentFormatting>
+        <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineTryResources>true</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.alignMultilineTryResources>
+        <org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.text-limit-width>100</org-netbeans-modules-editor-indent.text.x-java.CodeStyle.project.text-limit-width>
+        <org-netbeans-modules-javascript2-requirejs.enabled>false</org-netbeans-modules-javascript2-requirejs.enabled>
     </properties>
 </project-shared-configuration>
